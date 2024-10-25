@@ -71,7 +71,7 @@
                             <td>{{ i[4] }}</td> <!-- Merchant -->
                             <td>{{ i[5] }}</td> <!-- Purchase -->
                             {% if i[2] == "Recharge" or i[2] == "Received" %}
-                            <td style="color:green;">+{{ i[8] }}</td> <!-- amount -->
+                            <td style="color:green;">+{{ i[8]-i[7]}}</td> <!-- amount -->
                             {% else %}
                             <td style="color:red;">-{{ i[8] }}</td> <!-- amount -->
                             {% endif %}

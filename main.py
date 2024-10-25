@@ -124,7 +124,7 @@ class Kwarta:
         date = self.fetchDate()                    # Fetch Current Date
         userId = self.account[0]
         rawAmount = float(rawAmount)
-        total_amount = rawAmount + fee
+        total_amount = float(rawAmount + fee)
 
         cursor = self.mysql.connection.cursor()
         
@@ -171,7 +171,7 @@ class Kwarta:
                 self.recordFees(type, fee)
 
             elif type == "Send":
-                total_amount = fee + rawAmount
+                total_amount = float(fee + rawAmount)
                 cursor.execute(
                     "INSERT INTO tbl_transactions (userid, txn, type, payee, merchant, purchase, amount, fee, total_amount, date) "
                     "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
@@ -186,7 +186,7 @@ class Kwarta:
                 self.recordFees(type, fee)
 
             elif type == "Recharge":
-                total_amount = fee + rawAmount
+                total_amount = float(fee + rawAmount)
                 cursor.execute(
                     "INSERT INTO tbl_transactions (userid, txn, type, payee, merchant, purchase, amount, fee, total_amount, date) "
                     "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
@@ -617,7 +617,7 @@ class Kwarta:
                 
                 amount = float(amount)
 
-                fee = self.feeCalculator(amount)
+                fee = float(self.feeCalculator(amount))
                 print(f"total fee for send is {fee}")
             
 
@@ -859,8 +859,18 @@ class Kwarta:
                 total = float(amount)+fee 
 
                 print(phoneNumber, provider, amount)
+                if self.amountVerifier(amount) == False:
+                    flash('Please enter a valid deposit amount.', 'danger')#alert
+                    return redirect(url_for("dashboard"))
+
+                #load amount cannot be more than your balance
+                if self.account[4] < float(amount):
+                    flash('Insufficient Funds.', 'danger')#alert
+                    print("Insufficient Funds.")
+                    return redirect(url_for('dashboard'))
 
                 if self.withdraw(total,self.account):
+                    flash('Loaded to:', 'success')
                     self.recordTransaction("Load", self.account[3], provider, 0, f"{provider} {amount}", amount, fee)
                     print("Successful")
                 else: print("Failed")
@@ -881,6 +891,7 @@ class Kwarta:
                 amount = float(amount)
 
                 if(self.withdraw(amount,self.account)):
+                    flash('Donated to:', 'success')
                     self.recordTransaction("Donate",self.account[3], receiver, 0,"Donation", amount, fee )
 
                 else:

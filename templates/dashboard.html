@@ -290,15 +290,15 @@
                                     </div>
                                     <div class="amount-row">
                                         <span>Amount:</span>
-                                        <span class="amount">{{ history[-1][6] }}</span>
+                                        <span class="amount">₱{{ history[-1][6] }}</span>
                                     </div>
                                     <div class="amount-row fee">
                                         <span>Fee:</span>
-                                        <span class="amount">{{ history[-1][7] }}</span>
+                                        <span class="amount">₱{{ history[-1][7] }}</span>
                                     </div>
                                     <div class="amount-row">
                                         <span>Total:</span>
-                                        <span class="total-amount">{{ history[-1][8] }}</span>
+                                        <span class="total-amount">₱{{ history[-1][8] }}</span>
                                     </div>
                                 </div>
                                 <div class="ref-no">
@@ -324,15 +324,15 @@
                                     </div>
                                     <div class="amount-row">
                                         <span>Amount:</span>
-                                        <span class="amount">{{ history[-1][6] }}</span>
+                                        <span class="amount">₱{{ history[-1][6] }}</span>
                                     </div>
                                     <div class="amount-row fee">
                                         <span>Fee:</span>
-                                        <span class="amount">{{ history[-1][7] }}</span>
+                                        <span class="amount">₱{{ history[-1][7] }}</span>
                                     </div>
                                     <div class="amount-row">
                                         <span>Total:</span>
-                                        <span class="total-amount">{{ history[-1][8] }}</span>
+                                        <span class="total-amount">₱{{ history[-1][8]}}</span>
                                     </div>
                                 </div>
                                 <div class="ref-no">
@@ -363,17 +363,17 @@
                                     </div>
                                     <div class="amount-row fee">
                                         <span>Price:</span>
-                                        <span class="amount">{{ history[-1][6] }}</span>
+                                        <span class="amount">₱{{ history[-1][6] }}</span>
                                         <!-- Replace with the package price in PHP -->
                                     </div>
                                     <div class="amount-row">
                                         <span>Fee:</span>
-                                        <span class="amount">{{ history[-1][7] }}</span>
+                                        <span class="amount">₱{{ history[-1][7] }}</span>
                                         <!-- Replace with the fee in PHP -->
                                     </div>
                                     <div class="amount-row">
                                         <span>Total:</span>
-                                        <span class="total-amount">{{ history[-1][8] }}</span>
+                                        <span class="total-amount">₱{{ history[-1][8] }}</span>
                                         <!-- Replace with the total including fee in PHP -->
                                     </div>
                                 </div>
@@ -396,7 +396,7 @@
                             <div class="toast-body text-white">
                                 <div class="amount-details">
                                     <div class="sent-to">
-                                        <span>Paid To:</span>
+                                        <span>{{message}}</span>
                                         <span>{{ history[-1][4] }}</span>
                                     </div>
                                     <div class="amount-row">
@@ -405,15 +405,81 @@
                                     </div>
                                     <div class="amount-row fee">
                                         <span>Amount:</span>
-                                        <span class="amount">{{ history[-1][6] }}</span>
+                                        <span class="amount">₱{{ history[-1][6] }}</span>
                                     </div>
                                     <div class="amount-row">
                                         <span>Fee:</span>
-                                        <span class="amount">{{ history[-1][7] }}</span>
+                                        <span class="amount">₱{{ history[-1][7] }}</span>
                                     </div>
                                     <div class="amount-row">
                                         <span>Total:</span>
-                                        <span class="total-amount">{{ history[-1][8] }}</span>
+                                        <span class="total-amount">₱{{ history[-1][8] }}</span>
+                                    </div>
+                                </div>
+                                <div class="ref-no">
+                                    <center>
+                                        <p>Transaction ID:&nbsp;{{ history[-1][1] }}</p>
+                                        <p>{{ history[-1][9] }}</p>
+                                    </center>
+                                </div>
+                            </div>
+
+                            {% elif category == "success" and message == "Loaded to:" %}
+                            <div class="toast-header">
+                                <strong class="me-auto">Load Purchase Successful!</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body text-white">
+                                <div class="amount-details">
+                                    <div class="sent-to">
+                                        <span>Loaded From:</span>
+                                        <span>{{ history[-1][4] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Load Amount:</span>
+                                        <span class="amount">{{ history[-1][5] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Amount:</span>
+                                        <span class="amount">₱{{ history[-1][6] }}</span>
+                                    </div>
+                                    <div class="amount-row fee">
+                                        <span>Fee:</span>
+                                        <span class="amount">₱{{ history[-1][7] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Total:</span>
+                                        <span class="total-amount">₱{{ history[-1][8] }}</span>
+                                    </div>
+                                </div>
+                                <div class="ref-no">
+                                    <center>
+                                        <p>Transaction ID:&nbsp;{{ history[-1][1] }}</p>
+                                        <p>{{ history[-1][9] }}</p>
+                                    </center>
+                                </div>
+                            </div>
+
+                            {% elif category == "success" and message == "Donated to:" %}
+                            <div class="toast-header">
+                                <strong class="me-auto">Donation Successful!</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body text-white">
+                                <div class="amount-details">
+                                    <div class="sent-to">
+                                        <span>Donated To:</span>
+                                        <span>{{ history[-1][4] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Amount:</span>
+                                        <span class="amount">₱{{ history[-1][6] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Total:</span>
+                                        <span class="total-amount">₱{{ history[-1][8] }}</span>
                                     </div>
                                 </div>
                                 <div class="ref-no">
@@ -575,7 +641,7 @@
                                         <td>{{ i[4] }}</td> <!-- Merchant -->
                                         <td>{{ i[5] }}</td> <!-- Purchase -->
                                         {% if i[2] == "Recharge" or i[2] == "Received" %}
-                                        <td style="color:green;">+{{ i[8] }}</td> <!-- amount -->
+                                        <td style="color:green;">+{{ i[8]-i[7] }}</td> <!-- amount -->
                                         {% else %}
                                         <td style="color:red ;">-{{ i[8] }}</td> <!-- amount -->
                                         {% endif %}
