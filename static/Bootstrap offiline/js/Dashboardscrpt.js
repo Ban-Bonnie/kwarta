@@ -48,9 +48,3 @@ window.addEventListener('click', function(event) {
     }
 });
 
-$(".burger").click(function(){  
-    $.bootstrapGrowl('Successfully Sent',{  
-        type: 'success',  
-        delay: 2000,  
-    });  
-});

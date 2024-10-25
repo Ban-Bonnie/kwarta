@@ -1,6 +1,7 @@
 .modal input::placeholder {
   color: #999; /* Ensure placeholder is visible inside the modal */
 }
+
 :root {
   --main-bg-color: #009d63;
   --main-text-color: #009d63;

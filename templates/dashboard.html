@@ -39,28 +39,33 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                         <div class="myform bg-dark">
                             <h1 class="text-center">Send to any Kwarta account</h1>
-        
+
                             <!-- SEND FORM -->
                             <form method='post' action="/send_process">
                                 <div class="mb-3 mt-4">
                                     <label for="InputSendTo" class="form-label">Send to</label>
-                                    <input name="receiver" autocomplete="off" type="text" class="form-control" id="InputSendTo" aria-describedby="emailHelp" placeholder="Username or Phone Number">
+                                    <input name="receiver" autocomplete="off" type="text" class="form-control"
+                                        id="InputSendTo" aria-describedby="emailHelp"
+                                        placeholder="Username or Phone Number">
                                 </div>
                                 <div class="mb-3">
                                     <label if="feeDisplay" for="InputAmount" class="form-label">Amount</label>
-                                    
+
                                     <div class="input-group bg-dark">
                                         <span class="input-group-text">₱</span>
-                                        <input name="amount" autocomplete="off" type="number" step="0.01" class="form-control" id="InputAmount" placeholder="Enter amount" required>
+                                        <input name="amount" autocomplete="off" type="number" step="0.01"
+                                            class="form-control" id="InputAmount" placeholder="Enter amount" required>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                                    <input name="password" type="password" class="form-control"
+                                        id="exampleInputPassword1">
                                 </div>
                                 <p id="feeDisplay" class="text-light mt-1">Fee: ₱5.00</p>
                                 <button type="submit" class="btn btn-light mt-3">SEND</button>
@@ -71,7 +76,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <!--Recharge-->
         <div class="modal fade" id="rechargeForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
@@ -155,44 +160,51 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                         <div class="myform bg-dark">
                             <h1 class="text-center">Bank</h1>
                             <form method="post" action="bankTransfer_process">
                                 <div class="mb-3">
-                                    <select name="bank" class="form-select" id="bankOption" onchange="toggleBankFields()" required>
+                                    <select name="bank" class="form-select" id="bankOption"
+                                        onchange="toggleBankFields()" required>
                                         <option value="" disabled selected>Select Bank</option>
                                         <option value="China Bank">China Bank</option>
                                     </select>
                                 </div>
-        
+
                                 <div id="bankField" style="display: none;">
                                     <div class="mb-3 mt-4">
                                         <label for="InputAccname" class="form-label">Account Name</label>
-                                        <input name="accountName" type="text" class="form-control" id="InputSendTo" aria-describedby="emailHelp" placeholder="Account Name" required>
+                                        <input name="accountName" type="text" class="form-control" id="InputSendTo"
+                                            aria-describedby="emailHelp" placeholder="Account Name" required>
                                     </div>
                                     <div class="mb-3 mt-4">
                                         <label for="InputAccno" class="form-label">Card Number</label>
-                                        <input type="text" class="form-control" id="InputSendTo" aria-describedby="emailHelp" placeholder="1234 5678 435678"
-                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 14);" required>
+                                        <input type="text" class="form-control" id="InputSendTo"
+                                            aria-describedby="emailHelp" placeholder="1234 5678 435678"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 14);"
+                                            required>
                                     </div>
-        
+
                                     <div class="mb-3">
                                         <label for="InputAmount" class="form-label">Amount</label>
                                         <div class="input-group bg-dark">
                                             <span class="input-group-text">₱</span>
-                                            <input name="amount" type="number" class="form-control" id="BankInputAmount" placeholder="Enter amount" required>
+                                            <input name="amount" type="number" class="form-control" id="BankInputAmount"
+                                                placeholder="Enter amount" required>
                                         </div>
                                         <!-- Fee display for the bank form -->
                                         <p id="bankFeeDisplay" class="text-light mt-2">Fee: ₱5.00</p>
                                     </div>
-        
+
                                     <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
+                                        <input name="password" type="password" class="form-control"
+                                            id="exampleInputPassword1" required>
                                     </div>
                                 </div>
-        
+
                                 <button type="submit" class="btn btn-light mt-3">SEND</button>
                             </form>
                         </div>
@@ -200,7 +212,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <!--Loan Modal-->
         <div class="modal fade" id="notAvailableModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -270,7 +282,6 @@
                                     aria-label="Close"></button>
 
                             </div>
-
                             <div class="toast-body text-white">
                                 <div class="amount-details">
                                     <div class="sent-to">
@@ -297,6 +308,7 @@
                                     </center>
                                 </div>
                             </div>
+
                             {% elif category == "success" and message == "Successfully recharged!" %}
                             <div class="toast-header">
 
@@ -304,7 +316,6 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
                             </div>
-
                             <div class="toast-body text-white">
                                 <div class="amount-details">
                                     <div class="sent-to">
@@ -331,6 +342,7 @@
                                     </center>
                                 </div>
                             </div>
+
                             {% elif category == "success" and message == "Purchased from:" %}
                             <div class="toast-header">
                                 <strong class="me-auto">Purchase Successful!</strong>
@@ -338,7 +350,6 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="toast"
                                     aria-label="Close"></button>
                             </div>
-
                             <div class="toast-body text-white">
                                 <div class="amount-details">
                                     <div class="sent-to">
@@ -357,7 +368,8 @@
                                     </div>
                                     <div class="amount-row">
                                         <span>Fee:</span>
-                                        <span class="amount">{{ history[-1][7] }}</span> <!-- Replace with the fee in PHP -->
+                                        <span class="amount">{{ history[-1][7] }}</span>
+                                        <!-- Replace with the fee in PHP -->
                                     </div>
                                     <div class="amount-row">
                                         <span>Total:</span>
@@ -373,6 +385,45 @@
                                     </center>
                                 </div>
                             </div>
+
+                            {% elif category == "success" and message == "Paid to:" %}
+                            <div class="toast-header">
+                                <strong class="me-auto">Bill Payment Successful!</strong>
+                                <!-- Customize the message as needed -->
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body text-white">
+                                <div class="amount-details">
+                                    <div class="sent-to">
+                                        <span>Paid To:</span>
+                                        <span>{{ history[-1][4] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Bill Type:</span>
+                                        <span class="amount">{{ history[-1][5] }}</span>
+                                    </div>
+                                    <div class="amount-row fee">
+                                        <span>Amount:</span>
+                                        <span class="amount">{{ history[-1][6] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Fee:</span>
+                                        <span class="amount">{{ history[-1][7] }}</span>
+                                    </div>
+                                    <div class="amount-row">
+                                        <span>Total:</span>
+                                        <span class="total-amount">{{ history[-1][8] }}</span>
+                                    </div>
+                                </div>
+                                <div class="ref-no">
+                                    <center>
+                                        <p>Transaction ID:&nbsp;{{ history[-1][1] }}</p>
+                                        <p>{{ history[-1][9] }}</p>
+                                    </center>
+                                </div>
+                            </div>
+
 
 
 
@@ -552,21 +603,21 @@
             let fee = Math.ceil(amount * 0.02);
             return fee >= 5 ? fee : 5;
         }
-    
+
         // Event listener for the Send form (already existing)
-        document.getElementById('InputAmount').addEventListener('input', function() {
+        document.getElementById('InputAmount').addEventListener('input', function () {
             let amount = parseFloat(this.value) || 0;
             let fee = calculateFee(amount);
             document.getElementById('feeDisplay').textContent = `Fee: ₱${fee.toFixed(2)}`;
         });
-    
+
         // Event listener for the Bank form
-        document.getElementById('BankInputAmount').addEventListener('input', function() {
+        document.getElementById('BankInputAmount').addEventListener('input', function () {
             let amount = parseFloat(this.value) || 0;
             let fee = calculateFee(amount);
             document.getElementById('bankFeeDisplay').textContent = `Fee: ₱${fee.toFixed(2)}`;
         });
-    
+
         // Function to toggle the Bank fields visibility
         function toggleBankFields() {
             let bankField = document.getElementById('bankField');

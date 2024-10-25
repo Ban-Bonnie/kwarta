@@ -181,7 +181,7 @@ class Kwarta:
                 cursor.execute(
                     "INSERT INTO tbl_transactions (userid, txn, type, payee, merchant, purchase, amount, fee, total_amount, date) "
                     "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                    (merchantID, txn, type, sender, merchant, purchase, rawAmount, fee, rawAmount, date))
+                    (merchantID, txn, type, sender, merchant, purchase, rawAmount, fee, total_amount, date))
                 
                 self.increment_total_transaction(userId)
                 self.recordFees(type, fee)
@@ -298,7 +298,6 @@ class Kwarta:
             print("Insufficient balance")
             return False
         else:
-            flash('Purchased from:', 'success')
             cursor.execute("UPDATE accounts SET balance = balance-%s WHERE userId=%s",
                             (price,user[0]))
             self.mysql.connection.commit()
@@ -507,6 +506,10 @@ class Kwarta:
 
             cursor.close()
             return render_template("/AdminTopUp.html", revenue=revenue,gameData=gameData,monthlyRevenue = monthlyRevenues)
+        
+        @self.app.route("/AdminUsers")
+        def adminUsers():
+            return render_template("/AdminUsers.html")
 
 
 
@@ -716,7 +719,7 @@ class Kwarta:
         def gameTopup_process():
             if request.method=="POST":
                 game = request.form["game"]
-                success = True 
+                
                 
 
                 if game == "minecraft":
@@ -734,10 +737,9 @@ class Kwarta:
 
                     #Deduct Price
                     if(self.withdraw(total, self.account)):
-
+                        flash('Purchased from:', 'success')
                         print(f"Successfully withdrawn {total}")
                         self.recordTransaction("Game Topup", self.account[3], "Minecraft", self.account[0], f"{Minecoins} Minecoins", price, fee)
-                        
                         print(email,price, Minecoins)
 
                     else: 
@@ -759,6 +761,7 @@ class Kwarta:
                     fee = self.feeCalculator(price)
                     total = fee+price
                     if(self.withdraw(total, self.account)):
+                        flash('Purchased from:', 'success')
                         print(f"Successfully withdrawn {price}")
                         print(uid,server,price, package)
                         self.recordTransaction("Game Topup", self.account[3], "Genshin Impact", self.account[0], package, price, fee)
@@ -776,6 +779,7 @@ class Kwarta:
                     fee = self.feeCalculator(price)
                     total = fee+price
                     if(self.withdraw(total, self.account)):
+                        flash('Purchased from:', 'success')
                         print(f"Successfully withdrawn {total}")
                         self.recordTransaction("Game Topup", self.account[3], "League of Legends", self.account[0], f"{rp} RP", price, fee)
                         
@@ -794,6 +798,7 @@ class Kwarta:
                     total = fee+price
 
                     if(self.withdraw(total, self.account)):
+                        flash('Purchased from:', 'success')
                         print(f"Successfully withdrawn {total}")
                         self.recordTransaction("Game Topup", self.account[3], "Call of Duty Mobile", self.account[0], f"{int(price)} Garena Shellls", price, fee)
                         print(playerID,price)
@@ -813,6 +818,7 @@ class Kwarta:
                     total = fee+price
 
                     if(self.withdraw(total, self.account)):
+                        flash('Purchased from:', 'success')
                         print(f"Successfully withdrawn {total}")
                         self.recordTransaction("Game Topup", self.account[3], "Valorant", self.account[0], f"{currency} VP", price, fee)
                         
@@ -889,6 +895,7 @@ class Kwarta:
                     
 
                     if self.withdraw(total, self.account):
+                        flash('Paid to:', 'success')
                         self.recordTransaction("Bills Payment",sender,provider, userid,"Electric Bill",amount,fee)
                         print(f"successful {merchant} payment")
                     else: print("Error with user balance")
@@ -899,6 +906,7 @@ class Kwarta:
                     
                     
                     if self.withdraw(total, self.account):
+                        flash('Paid to:', 'success')
                         self.recordTransaction("Bills Payment",sender,hospital, userid,"Healthcare Bill",amount,fee)
                         print(f"successful {merchant} payment")
                     else: print("Error with user balance")
@@ -909,6 +917,7 @@ class Kwarta:
                     
                     
                     if self.withdraw(total, self.account):
+                        flash('Paid to:', 'success')
                         self.recordTransaction("Bills Payment",sender,provider, userid,f"{merchant} Bill",amount,fee)
                         print(f"successful {merchant} payment")
                     else: print("Error with user balance")
@@ -921,16 +930,18 @@ class Kwarta:
                         
                         
                         if self.withdraw(total, self.account):
+                            flash('Paid to:', 'success')
                             self.recordTransaction("Bills Payment",sender,cardNumber, userid,f"{merchant} Payment",amount,fee)
                             print(f"successful {merchant} payment")
                         else: print("Error with user balance")
 
                 elif merchant == "Water":
-                        name = request.form["name"]
+                        biller_name = request.form["name"]
                         accountNumber = request.form["accountNumber"]
                
                         if self.withdraw(total, self.account):
-                            self.recordTransaction("Bills Payment",sender,name, userid,f"{merchant} Bill",amount,fee)
+                            flash('Paid to:', 'success')
+                            self.recordTransaction("Bills Payment",sender,biller_name, userid,f"{merchant} Bill",amount,fee)
                             print(f"successful {merchant} payment")
                         else: print("Error with user balance")
 
@@ -940,6 +951,7 @@ class Kwarta:
                         provider = request.form["provider"]
                         
                         if self.withdraw(total, self.account):
+                            flash('Paid to:', 'success')
                             self.recordTransaction("Bills Payment",sender,provider, userid,f"{merchant} Bill",amount,fee)
                             print(f"successful {merchant} payment")
                         else: print("Error with user balance")
@@ -950,6 +962,7 @@ class Kwarta:
                     provider = request.form["provider"]
 
                     if self.withdraw(total,self.account):
+                        flash('Paid to:', 'success')
                         self.recordTransaction("Bills Payment",sender,provider, userid,f"{merchant} Payment",amount,fee)
                         print(f"successful {merchant} payment")
                     else: print("Error with user balance")
@@ -960,6 +973,7 @@ class Kwarta:
                     provider = request.form["provider"]
 
                     if self.withdraw(total,self.account):
+                        flash('Paid to:', 'success')
                         self.recordTransaction("Bills Payment",sender,provider, userid,f"{merchant} Payment",amount,fee)
                         print(f"successful {merchant} payment")
                     else: print("Error with user balance")
