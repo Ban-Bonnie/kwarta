@@ -91,12 +91,7 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <span class="custom-checkbox">
-                                            <input type="checkbox" id="selectAll">
-                                            <label for="selectAll"></label>
-                                        </span>
-                                    </th>
+                                    
                                     <th>ID</th>
                                     <th>Username</th>
                                     <th>Password</th>
@@ -111,12 +106,7 @@
                             <tbody>
                                 {% for i in accounts %}
                                     <tr>
-                                        <td>
-                                            <span class="custom-checkbox">
-                                                <input type="checkbox" id="checkbox{{ loop.index }}" name="options[]" value="{{ i[0] }}">
-                                                <label for="checkbox{{ loop.index }}"></label>
-                                            </span>
-                                        </td>
+                                        
                                         <td>{{ i[0] }}</td>
                                         <td>{{ i[1] }}</td>
                                         <td>{{ i[2] }}</td>
@@ -152,6 +142,8 @@
                     </div>
                 </div>
             </div>
+
+                
 
             <!-- Add Employee Modal -->
             <div id="addEmployeeModal" class="modal fade">
@@ -261,7 +253,7 @@
             </div>
 
 
-
+            
         </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -295,6 +287,45 @@
                 document.getElementById('editDateJoined').value = this.getAttribute('data-date');
             });
         });
+    </script>
+    <!-- sort -->
+
+    <script>
+        document.getElementById('sortBy').addEventListener('change', function() {
+            sortTable(this.value);
+        });
+        
+        function sortTable(criteria) {
+            const table = document.querySelector('table tbody');
+            const rows = Array.from(table.rows);
+        
+            // Determine the index based on the criteria
+            const indexMap = {
+                'name': 3,
+                'username': 1,
+                'balance': 4,
+                'dateJoined': 6,
+                'totalTransactions': 7,
+            };
+        
+            const index = indexMap[criteria];
+            if (index !== undefined) {
+                rows.sort((a, b) => {
+                    const cellA = a.cells[index].innerText;
+                    const cellB = b.cells[index].innerText;
+        
+                    // Handle numeric sorting for balance and total transactions (descending)
+                    if (criteria === 'balance' || criteria === 'totalTransactions') {
+                        return parseFloat(cellB) - parseFloat(cellA); // Change to descending
+                    }
+                    // Default string sorting (ascending)
+                    return cellA.localeCompare(cellB);
+                });
+        
+                // Append sorted rows back to the table body
+                rows.forEach(row => table.appendChild(row));
+            }
+        }
     </script>
 
     <!-- Search -->

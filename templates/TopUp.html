@@ -24,8 +24,10 @@
         <div class="ml-auto ms-auto d-flex align-items-center text-end nav-icon">
             <i class="fas fa-bell primary-text navbar-icon me-3" id="notification-icon" title="Notifications"
                 style="font-size: 1.5rem; cursor: pointer;"></i>
-            <i class="fas fa-user-circle primary-text navbar-icon" id="profile-icon" title="Profile"
-                style="font-size: 1.5rem; cursor: pointer;"></i>
+
+            <a href="{{ url_for('Profile') }}" title="Profile">
+                <i class="fas fa-user-circle primary-text navbar-icon" id="profile-icon" style="font-size: 1.5rem; cursor: pointer;"></i>
+            </a>
         </div>
     </nav>
 

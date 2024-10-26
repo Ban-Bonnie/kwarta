@@ -206,12 +206,12 @@ class Kwarta:
             self.mysql.connection.commit()
 
         except Exception as e:
-            self.mysql.connection.rollback()  # Rollback on error
+            self.mysql.connection.rollback()  
             print(f"An error occurred while recording the transaction: {e}")
         
 
         finally:
-            cursor.close()  # Ensure cursor is closed regardless of success or error
+            cursor.close()  
 
     def recordFees(self, type, amount):
         cursor = self.mysql.connection.cursor()
@@ -1128,3 +1128,4 @@ x.run()
 # make Load now button #009d63(main color)
 # modals for success transactions (Game topup, Load, etc.)
 # also add confirmation modals ("you are sending __ amount to user ___, click to confirm")
+# Route the profile icon
