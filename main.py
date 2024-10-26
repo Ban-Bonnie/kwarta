@@ -518,7 +518,10 @@ class Kwarta:
         
         @self.app.route("/AdminUsers")
         def adminUsers():
-            return render_template("/AdminUsers.html")
+            cursor = self.mysql.connection.cursor()
+            cursor.execute("SELECT * FROM accounts;")
+            accounts = cursor.fetchall()
+            return render_template("/AdminUsers.html",accounts = accounts)
 
 
 
@@ -838,8 +841,6 @@ class Kwarta:
                 
                 return redirect(url_for("dashboard"))
                 
-                
-        
         @self.app.route("/load_process", methods=["POST", "GET"])
         def load_process():
             if request.method == "POST":
@@ -1061,6 +1062,62 @@ class Kwarta:
                 else:
                     print("Incorrect Password")
                     return redirect(url_for("Profile"))
+
+        @self.app.route("/admin_update_user", methods=["POST", "GET"])
+        def updateUserDetails():
+            if request.method == "POST":
+                user_id = request.form.get("userId")
+                username = request.form.get("username")
+                password = request.form.get("password")
+                name = request.form.get("name")
+                balance = request.form.get("balance")
+                phone = request.form.get("phone")
+                date_joined = request.form.get("date_joined")
+
+                cursor = self.mysql.connection.cursor()
+                try:
+                    cursor.execute(
+                        """
+                        UPDATE accounts 
+                        SET username = %s, password = %s, name = %s, balance = %s, phone = %s, date_joined = %s 
+                        WHERE userId = %s
+                        """,
+                        (username, password, name, balance, phone, date_joined, user_id)
+                    )
+                    self.mysql.connection.commit()
+                    cursor.close()
+                
+                except Exception as e:
+                    self.mysql.connection.rollback()
+                    
+                    cursor.close()
+                return redirect(url_for("adminUsers"))
+
+            return redirect(url_for("adminUsers")) 
+     
+        @self.app.route("/delete_user", methods=["POST", "GET"])
+        def deleteUser():
+            if request.method == "POST":
+                user_id = request.form.get("userId")
+                cursor = self.mysql.connection.cursor()
+                print(user_id)
+
+
+                try:
+                    cursor.execute("DELETE FROM aging_accounts WHERE userid = %s",(user_id,))
+                    cursor.execute("DELETE FROM accounts WHERE userid = %s",(user_id,))
+                    self.mysql.connection.commit()
+                    print("Successfully deleted user")
+                except Exception as e:
+                    self.mysql.connection.rollback()
+                    print(f"Error deleting user {user_id}: {e}")
+                finally:
+                    cursor.close()
+
+                return redirect(url_for("adminUsers"))
+
+            return redirect(url_for("adminUsers"))  # Handle GET requests
+
 
 # Object
 x = Kwarta(__name__) 
