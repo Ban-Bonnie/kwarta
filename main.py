@@ -1120,7 +1120,7 @@ class Kwarta:
 
 
 # Object
-x = Kwarta(__name__) 
+x = Kwarta(__name__)
 x.setup_route()
 x.run()
 
