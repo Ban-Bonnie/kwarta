@@ -1,11 +1,12 @@
 .modal input::placeholder {
-  color: #999; /* Ensure placeholder is visible inside the modal */
+  color: #999;
+  /* Ensure placeholder is visible inside the modal */
 }
 
 :root {
-  --main-bg-color: #009d63;
-  --main-text-color: #009d63;
-  --second-text-color: #bbbec5;
+  --main-bg-color: #575abd;
+  --main-text-color: #575abd;
+  --second-text-color: #b8babede;
   --second-bg-color: #c1efde;
 }
 
@@ -31,12 +32,14 @@
 
 #wrapper {
   overflow-x: hidden;
-  background-image: linear-gradient(to right,
-      #baf3d7,
-      #c2f5de,
-      #cbf7e4,
-      #d4f8ea,
-      #ddfaef);
+  background-image: linear-gradient(to bottom,
+      #b4b8ed,
+      #b4b8ed,
+      #b4b8ed,
+      #b4b8ed,
+      #b4b8ed);
+
+
 }
 
 #sidebar-wrapper {
@@ -81,6 +84,10 @@
   border: none;
 }
 
+.list-group-item-action:focus, .list-group-item-action:hover {
+  color: #141313;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;
@@ -100,46 +107,57 @@
 
 /* Specific icon class for navbar icons */
 .navbar-icon {
-  font-size: 2rem; /* Larger size for icons */
-  transition: transform 0.3s; /* Smooth scaling on hover */
+  font-size: 2rem;
+  /* Larger size for icons */
+  transition: transform 0.3s;
+  /* Smooth scaling on hover */
 }
 
 .navbar-icon:hover {
-  transform: scale(1.2); /* Slightly enlarge on hover */
+  transform: scale(1.2);
+  /* Slightly enlarge on hover */
 }
 
 /* Ensure the navbar is responsive */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Distribute items evenly */
-  flex-wrap: wrap; /* Allow items to wrap on small screens */
+  justify-content: space-between;
+  /* Distribute items evenly */
+  flex-wrap: wrap;
+  /* Allow items to wrap on small screens */
 }
 
 /* Adjust margin for the notification and profile icons */
 .nav-icon {
-  margin-left: auto; /* Align icons to the right */
+  margin-left: auto;
+  /* Align icons to the right */
   display: flex;
   align-items: center;
 }
 
 /* Add space between icons */
 .nav-icon .navbar-icon {
-  margin-left: 15px; /* Add space between icons */
+  margin-left: 15px;
+  /* Add space between icons */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar-icon {
-      font-size: 1.5rem; /* Smaller size for mobile */
+    font-size: 1.5rem;
+    /* Smaller size for mobile */
   }
 
   .navbar {
-      flex-direction: column; /* Stack items vertically */
-      align-items: flex-start; /* Align items to the left */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: flex-start;
+    /* Align items to the left */
   }
 
   h2 {
-      margin-bottom: 10px; /* Add space below the title on mobile */
+    margin-bottom: 10px;
+    /* Add space below the title on mobile */
   }
 }
 
@@ -154,10 +172,12 @@
   min-width: 250px;
 
 }
+
 #wrapper.toggled .balance .col-md-4 {
   flex: 1;
   max-width: 100%;
 }
+
 /* transaction his */
 .transac {
   display: flex;
@@ -167,26 +187,29 @@
 
 /* 8 Buttons */
 .Buttons .btn {
-  width: 100%; 
-  height: 10vh; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  text-align: center; 
-  border-radius: 12px; 
-  padding: 0; 
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 12px;
+  padding: 0;
   font-size: 16px;
 }
 
 .icon-lg {
-  font-size: 25px; /* icon size*/
+  font-size: 25px;
+  /* icon size*/
 }
 
 /* Adjust column spacing */
 .Buttons .col-3 {
-  padding: 0; /* Reset padding for consistent spacing */
-  margin: 1vh; /* Set vertical margin between buttons */
+  padding: 0;
+  /* Reset padding for consistent spacing */
+  margin: 1vh;
+  /* Set vertical margin between buttons */
   width: 25vh;
 }
 
@@ -194,8 +217,10 @@
 .modal .modal-content {
   width: 80%;
   margin: 0 auto;
-  background-color: #533747; /* Updated form background color */
-  color: #FFFFFF; /* Text color */
+  background-color: #533747;
+  /* Updated form background color */
+  color: #FFFFFF;
+  /* Text color */
 }
 
 .modal .modal-body {
@@ -206,101 +231,122 @@
   position: absolute;
   right: 0;
   padding: 1em;
-  color: #86BBBD; /* Updated close button color */
+  color: #575abd;
+  /* Updated close button color */
 }
 
 .modal h1 {
   font-size: 2.3em;
   font-weight: bold;
-  color: #76949F; /* Updated heading color */
+  color: #575abd;
+  /* Updated heading color */
 }
 
 .modal .myform {
   padding: 2em;
   max-width: 100%;
-  color: #FFFFFF; /* Text color */
-  background-color: #6A6B83; /* Updated form background color */
+  color: #FFFFFF;
+  /* Text color */
+  background-color: #6A6B83;
+  /* Updated form background color */
   box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
 }
 
 @media (max-width: 375px) {
   .modal .myform {
-      max-width: 100%;
-      margin: 0 auto;
+    max-width: 100%;
+    margin: 0 auto;
   }
+
   .modal .modal-dialog {
-      width: 90%;
-      max-width: 375px;
-      height: auto;
-      margin: 20px auto;
+    width: 90%;
+    max-width: 375px;
+    height: auto;
+    margin: 20px auto;
   }
+
   .modal .modal-content {
-      border-radius: 0.25em;
+    border-radius: 0.25em;
   }
 }
 
 .modal .form-control:focus {
-  box-shadow: inset 0 -1px 0 #86BBBD; /* Updated focus border color */
+  box-shadow: inset 0 -1px 0 #575abd;
+  /* Updated focus border color */
 }
 
 .modal .form-control {
   background-color: inherit;
-  color: #FFFFFF; /* Input text color */
+  color: #FFFFFF;
+  /* Input text color */
   padding-left: 0;
   border: 0;
-  border-bottom: 1px solid #76949F; /* Updated input border color */
+  border-bottom: 1px solid #575abd;
+  /* Updated input border color */
 }
 
 .modal .myform .btn {
   width: 100%;
   font-weight: 800;
-  background-color: #86BBBD; /* Updated button background color */
+  background-color: #575abd;
+  /* Updated button background color */
   border-radius: 0;
   padding: 0.5em 0;
-  color: #191919; /* Button text color */
+  color: #191919;
+  /* Button text color */
 }
 
 .modal .myform .btn:hover {
-  background-color: #76949F; /* Updated button hover background color */
-  color: #FFFFFF; /* Button hover text color */
-  border-color: #76949F; /* Button hover border color */
+  background-color: #5A6A73;
+  /* Updated button hover background color */
+  color: #FFFFFF;
+  /* Button hover text color */
 }
 
 .modal p {
   text-align: center;
   padding-top: 2em;
-  color: #e1e1e1; /* Paragraph text color */
+  color: #e1e1e1;
+  /* Paragraph text color */
 }
 
 .modal p a {
-  color: #e1e1e1; /* Link color */
+  color: #e1e1e1;
+  /* Link color */
   text-decoration: none;
 }
 
 .modal p a:hover {
-  color: #FFFFFF; /* Link hover color */
+  color: #FFFFFF;
+  /* Link hover color */
 }
 
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none; /* Fremove down and up arrow */
-    margin: 0;
+  -webkit-appearance: none;
+  /* Fremove down and up arrow */
+  margin: 0;
 }
+
 /* Styling the peso sign and input-group */
 .input-group {
   position: relative;
 }
 
 .input-group-text {
-  background-color: transparent; /* Match with form background color */
-  color: #aaaaaa; /* Light gray placeholder color */
+  background-color: transparent;
+  /* Match with form background color */
+  color: #aaaaaa;
+  /* Light gray placeholder color */
   border: none;
-  border-bottom: 1.5px solid #76949F; /* Same as input border */
+  border-bottom: 1.5px solid #575abd;
+  /* Same as input border */
   padding: 0.5em 1em;
 }
 
 .form-control {
-  padding-left: 0.5em; /* Add some padding to input */
+  padding-left: 0.5em;
+  /* Add some padding to input */
 }
 
 /* Recharge style */
@@ -375,93 +421,133 @@ input[type=number]::-webkit-inner-spin-button {
   font-weight: 600;
 }
 
-.pd{
+.pd {
   margin-bottom: -25px;
 }
 
-.rows{
+.rows {
   font-weight: bold;
 }
 
-.column{
+.column {
   font-weight: bolder;
 
 }
+
 /*notif*/
 .toggle-badge {
   position: absolute;
-  top: -10px; /* Adjusted to position the badge above the mail icon */
-  right: 40px; /* Adjusted based on your layout */
-  background-color: red; /* Badge background color */
-  color: white; /* Badge text color */
-  border-radius: 50%; /* Make it circular */
-  padding: 5px 8px; /* Padding for the badge */
-  font-size: 12px; /* Font size for the badge */
-  font-weight: bold; /* Bold text for visibility */
+  top: -10px;
+  /* Adjusted to position the badge above the mail icon */
+  right: 40px;
+  /* Adjusted based on your layout */
+  background-color: red;
+  /* Badge background color */
+  color: white;
+  /* Badge text color */
+  border-radius: 50%;
+  /* Make it circular */
+  padding: 5px 8px;
+  /* Padding for the badge */
+  font-size: 12px;
+  /* Font size for the badge */
+  font-weight: bold;
+  /* Bold text for visibility */
 }
+
 .notification-dropdown {
-  max-height: 200px; /* Approx height for 3 notifications */
-  overflow-y: auto; /* Enables vertical scrolling */
-  width: 300px; /* Adjust width as needed */
-  background-color: #fff; /* Background color for the dropdown */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Dropdown shadow */
-  border-radius: 5px; /* Rounded corners */
+  max-height: 200px;
+  /* Approx height for 3 notifications */
+  overflow-y: auto;
+  /* Enables vertical scrolling */
+  width: 300px;
+  /* Adjust width as needed */
+  background-color: #fff;
+  /* Background color for the dropdown */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Dropdown shadow */
+  border-radius: 5px;
+  /* Rounded corners */
   position: absolute;
   top: 40px;
   right: 0;
   z-index: 1000;
-  display: none; /* Hide dropdown by default */
+  display: none;
+  /* Hide dropdown by default */
 }
+
 #notification-dropdown::-webkit-scrollbar {
   display: none;
 }
+
 .notification-item {
-  padding: 10px 15px; /* Padding for items */
-  border-bottom: 1px solid #eee; /* Divider between items */
-  color: black; /* Text color */
+  padding: 10px 15px;
+  /* Padding for items */
+  border-bottom: 1px solid #eee;
+  /* Divider between items */
+  color: black;
+  /* Text color */
   text-align: left
 }
+
 .notification-item:last-child {
-  border-bottom: none; /* Remove last border */
+  border-bottom: none;
+  /* Remove last border */
 }
+
 .notification-item:hover {
-  background-color: #f0f0f0; /* Highlight effect on hover */
+  background-color: #f0f0f0;
+  /* Highlight effect on hover */
 }
+
 .d-none {
-  display: none; /* Class to hide elements */
-  
+  display: none;
+  /* Class to hide elements */
+
 }
 
 /*alert*/
 .toast-container {
-  max-width: 400px; /* Limit the width of the toast */
-  width: 100%; /* Ensure it can stretch to the container */
+  max-width: 400px;
+  /* Limit the width of the toast */
+  width: 100%;
+  /* Ensure it can stretch to the container */
 }
 
 .toast {
   border-radius: 10px;
   padding: 15px;
-  background-color: #333; /* Dark background for contrast */
-  color: #ffffff; /* White text for readability */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-  transition: transform 0.2s ease; /* Smooth scale transition on hover */
+  background-color: #333;
+  /* Dark background for contrast */
+  color: #ffffff;
+  /* White text for readability */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  /* Subtle shadow for depth */
+  transition: transform 0.2s ease;
+  /* Smooth scale transition on hover */
 }
 
 .toast:hover {
-  transform: scale(1.02); /* Slightly enlarges on hover */
+  transform: scale(1.02);
+  /* Slightly enlarges on hover */
 }
 
 .toast-header {
   font-weight: bold;
-  font-size: 1.1em; /* Slightly larger font size */
-  margin-bottom: 5px; /* Space below header */
-  border-bottom: 1px solid #444; /* Underline for separation */
-  padding-bottom: 5px; /* Padding for better spacing */
+  font-size: 1.1em;
+  /* Slightly larger font size */
+  margin-bottom: 5px;
+  /* Space below header */
+  border-bottom: 1px solid #444;
+  /* Underline for separation */
+  padding-bottom: 5px;
+  /* Padding for better spacing */
 }
 
 .amount-details {
   margin-top: 10px;
-  font-size: 0.9em; /* Slightly larger font size */
+  font-size: 0.9em;
+  /* Slightly larger font size */
 }
 
 .sent-to {
@@ -470,24 +556,28 @@ input[type=number]::-webkit-inner-spin-button {
   padding: 5px 0;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #ffcc00; /* Bright color for emphasis */
+  color: #ffcc00;
+  /* Bright color for emphasis */
 }
 
 .amount-row {
   display: flex;
   justify-content: space-between;
   padding: 5px 0;
-  border-bottom: 1px solid #444; /* Bottom border for separation */
+  border-bottom: 1px solid #444;
+  /* Bottom border for separation */
 }
 
 .amount-row.fee {
-  color: #ffcc00; /* Different color for fee */
+  color: #ffcc00;
+  /* Different color for fee */
 }
 
 .ref-no {
   margin-top: 15px;
   font-size: 0.85em;
-  color: #b0b0b0; /* Lighter color for reference number */
-  text-align: right; /* Aligns text to the right */
+  color: #b0b0b0;
+  /* Lighter color for reference number */
+  text-align: right;
+  /* Aligns text to the right */
 }
-

@@ -2,7 +2,7 @@
 
 :root {
     /* Core Palette */
-    --primary-blue: #009d63;         /* Reliable, deep greenish-blue for primary actions */
+    --primary-blue: #575abd;         /* Reliable, deep greenish-blue for primary actions */
     --soft-gray: #bbbec5;            /* Neutral background */
     --accent-green: #7f83e1;         /* Success indicators, approval */
   
@@ -20,8 +20,8 @@
     --light-blue: #0da3e9;           /* Light accent for backgrounds, cards */
     --dark-purple: #0a5174;          /* Almost-neutral deep shade, reserved */
     --medium-purple: #5A6A73;        /* Cool gray-blue as a subtle accent */
-    --light-purple: #b2ffad;         /* Pale gray-blue for dividers, borders */
-    --medium-gray: #7f83e1;          /* Secondary text, non-distracting */
+    --light-purple: #85d180;         /* Pale gray-blue for dividers, borders */
+    --medium-gray: #575abd;          /* Secondary text, non-distracting */
 }
 
 
@@ -117,9 +117,7 @@ header .item-button button {
     transition: all 0.5s ease;
 }
 
-header .item-button button:hover {
-    border: 2px solid var(--medium-purple);
-}
+
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
@@ -162,7 +160,7 @@ header .item-button button:hover {
     width: 88%;
     margin: 0 auto;
     padding-bottom: 16px;
-    border-bottom: 2px solid var(--light-purple);
+    border-bottom: 2px solid var(--primary-blue);
 }
 
 #navbModal .modal-header img {
@@ -177,7 +175,7 @@ header .item-button button:hover {
 }
 
 #navbModal .modal-header i {
-    color: var(--light-blue);
+    color: var(--primary-blue);
     font-size: 30px;
 }
 
@@ -203,7 +201,7 @@ header .item-button button:hover {
     cursor: pointer;
     transition: all .5s ease;
     color: var(--light-blue);
-    border-bottom: 1px solid var(--light-blue);
+    border-bottom: 1px solid var(--primary-blue);
 }
 
 #navbModal .modal-body .modal-line:hover {
@@ -277,14 +275,14 @@ header .item-button button:hover {
     position: absolute;
     right: 0;
     padding: 1em;
-    color: var(--light-blue);
+    color: var(--primary-blue);
 }
 
 #LoginForm h1,
 #RegisterForm h1 {
     font-size: 2.3em;
     font-weight: bold;
-    color: var(--light-purple);
+    color: var(--primary-blue);
 }
 
 #LoginForm .myform,
@@ -317,7 +315,7 @@ header .item-button button:hover {
 
 #LoginForm .form-control:focus,
 #RegisterForm .form-control:focus {
-    box-shadow: inset 0 -1px 0 var(--light-blue);
+    box-shadow: inset 0 -1px 0 var(--medium-purple);
 }
 
 #LoginForm .form-control,
@@ -326,24 +324,22 @@ header .item-button button:hover {
     color: var(--white);
     padding-left: 0;
     border: 0;
-    border-bottom: 2px solid var(--light-purple);
+    border-bottom: 2px solid var(--primary-blue);
 }
 
 #LoginForm .myform .btn,
 #RegisterForm .myform .btn {
     width: 100%;
     font-weight: 800;
-    background-color: var(--light-purple);
-    border-radius: 0;
+    background-color: var(--primary-blue);
     padding: 0.5em 0;
     color: var(--muted-black);
 }
 
 #LoginForm .myform .btn:hover,
 #RegisterForm .myform .btn:hover {
-    background-color: var(--light-blue);
+    background-color: var(--medium-purple);
     color: var(--white);
-    border-color: var(--light-blue);
 }
 
 #LoginForm p,
@@ -366,7 +362,7 @@ header .item-button button:hover {
 
 /* Intro */
 .head-section {
-    background-image: linear-gradient(180deg, var(--medium-gray),var(--light-purple));
+    background-image: linear-gradient(100deg, var(--medium-gray),var(--light-purple));
     min-height: 60vh;
     display: flex;
     align-items: center;
@@ -440,7 +436,7 @@ header .item-button button:hover {
 }
 
 #About {
-    background-image: linear-gradient(180deg, var(--medium-gray),var(--light-purple));
+    background-image: linear-gradient(150deg, var(--medium-gray),var(--light-purple));
     padding: 30px; 
     color: var(--dark-charcoal);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
@@ -462,13 +458,18 @@ header .item-button button:hover {
 }
 
 .About .btn-primary {
-    background-color: var(--muted-black) !important; 
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    transition: all 0.5s ease;
+    background-color: var(--dark-purple); 
     border: none;
-    transition: background-color 0.3s ease;
 }
 
 .About .btn-primary:hover {
-    background-color: var(--light-blue) !important;
+    background-color: var(--medium-purple) !important;
 }
 
 /* faq Testimony */
@@ -480,7 +481,7 @@ header .item-button button:hover {
 }
 
 .Review {
-    background-image: linear-gradient(180deg, var(--medium-gray),var(--light-purple));
+    background-image: linear-gradient(200deg, var(--medium-gray),var(--light-purple));
     min-height: 50vh;
     display: flex;
     align-items: center;
@@ -623,23 +624,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* Alert styles */
-.alert-success {
-    background-color: var(--accent-green);
-    color: var(--white);
-    border-color: var(--muted-navy);
-}
 
-.alert-warning {
-    background-color: var(--warning-orange);
-    color: var(--white);
-    border-color: var(--muted-navy);
-}
-
-.alert-danger {
-    background-color: var(--warning-orange);
-    color: var(--white);
-    border-color: var(--muted-navy);
-}
 
 /* Table styles */
 table {

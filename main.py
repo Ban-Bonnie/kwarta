@@ -588,12 +588,14 @@ class Kwarta:
                 cursor.execute('SELECT username FROM accounts WHERE username = %s', (username,))
                 userExists = cursor.fetchone()
                 if userExists:
+                    flash("Username already taken")
                     print('Username already taken')
-                    return redirect("/")
+                    return redirect(url_for("home") + "#RegisterForm")
                 
                 if password != confirmPassword:
+                    flash("Password does not match")
                     print('Password does not match')
-                    return redirect("/")
+                    return redirect(url_for("home") + "#RegisterForm")
                 
                 #registering account to accounts table
                 date = self.fetchDate()
@@ -643,7 +645,7 @@ class Kwarta:
 
                     #Prevents user from sending to self
                     if receiver1 == self.account:
-                        flash('Cannot send to self!', 'danger')
+                        flash('Cannot process payment to own profile', 'danger')
                         print("Cannot send to self")
                         return redirect(url_for("dashboard"))
 
