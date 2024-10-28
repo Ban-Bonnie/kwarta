@@ -648,6 +648,11 @@ class Kwarta:
                     cursor = self.mysql.connection.cursor()
                     cursor.execute('SELECT * FROM accounts WHERE username = %s or phone = %s', (receiver,receiver))
                     receiver1 = cursor.fetchone()
+                    cursor.execute("SELECT username FROM accounts WHERE phone =%s;",(receiver,))
+                    x = cursor.fetchone()
+                    if x:
+                        receiver = x
+
 
                     #Prevents user from sending to self
                     if receiver1 == self.account:
