@@ -20,19 +20,28 @@
                 <i class="fas fa-coins me-2"></i>Kwarta
             </div>
             <div class="list-group list-group-flush my-3">
-                <a href="{{url_for('admin')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="{{url_for('admin')}}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                <a href="{{url_for('adminTopup')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="{{url_for('adminTopup')}}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-wallet me-2"></i>TopUp</a>
-                <a href="{{url_for('adminLoad')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="{{url_for('adminLoad')}}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-bolt me-2"></i>Load</a>
-                <a href="{{url_for('adminDonations')}}"class="list-group-item list-group-item-action bg-transparent second-text active">
+                <a href="{{url_for('adminDonations')}}"
+                    class="list-group-item list-group-item-action bg-transparent second-text active">
                     <i class="fas fa-gift me-2"></i>Donation</a>
-                <a href="{{url_for('adminBills')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="{{url_for('adminBills')}}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-file-invoice me-2"></i>Bills</a>
-                <a href="{{url_for('adminUsers')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="{{url_for('adminUsers')}}"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <i class="fas fa-users me-2"></i>Users</a>
-                <a href="{{url_for('home')}}" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+                <a href="{{url_for('adminTransac')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fas fa-arrow-right-arrow-left me-2"></i>Transactions</a>
+                <a href="{{url_for('home')}}"
+                    class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
                     <i class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
@@ -107,55 +116,55 @@
                         // Total Donation Revenue Chart
                         var totalDonationData = google.visualization.arrayToDataTable([
                             ['Month', 'Revenue'],
-                            ['Jan', {{donationGrowth[0]}}], ['Feb', {{donationGrowth[1]}}], ['Mar', {{donationGrowth[2]}}],
-                            ['Apr', {{donationGrowth[3]}}], ['May', {{donationGrowth[4]}}], ['Jun', {{donationGrowth[5]}}],
-                            ['Jul', {{donationGrowth[6]}}], ['Aug', {{donationGrowth[7]}}], ['Sep', {{donationGrowth[8]}}],
-                            ['Oct', {{donationGrowth[9]}}], ['Nov', {{donationGrowth[10]}}], ['Dec', {{donationGrowth[11]}}]
+                            ['Jan', {{ donationGrowth[0]}}], ['Feb', {{ donationGrowth[1]}}], ['Mar', {{ donationGrowth[2]}}],
+                                ['Apr', {{ donationGrowth[3]}}], ['May', {{ donationGrowth[4]}}], ['Jun', {{ donationGrowth[5]}}],
+                                ['Jul', {{ donationGrowth[6]}}], ['Aug', {{ donationGrowth[7]}}], ['Sep', {{ donationGrowth[8]}}],
+                                ['Oct', {{ donationGrowth[9]}}], ['Nov', {{ donationGrowth[10]}}], ['Dec', {{ donationGrowth[11]}}]
                         ]);
 
-                        var totalDonationOptions = {
-                            title: 'Total Donation',
-                            curveType: 'function',
-                            legend: { position: 'bottom' },
-                            vAxis: { title: 'Revenue (₱)' },
-                            hAxis: { title: 'Month' },
-                            colors: ['#007bff'],
-                            pointSize: 4
-                        };
-                        var formatter = new google.visualization.NumberFormat({
-                            prefix: '₱',  // Adds the peso sign before each value
-                            fractionDigits: 2 // Keeps two decimal places (optional)
-                        });
-                        formatter.format(totalDonationData, 1);
+                    var totalDonationOptions = {
+                        title: 'Total Donation',
+                        curveType: 'function',
+                        legend: { position: 'bottom' },
+                        vAxis: { title: 'Revenue (₱)' },
+                        hAxis: { title: 'Month' },
+                        colors: ['#007bff'],
+                        pointSize: 4
+                    };
+                    var formatter = new google.visualization.NumberFormat({
+                        prefix: '₱',  // Adds the peso sign before each value
+                        fractionDigits: 2 // Keeps two decimal places (optional)
+                    });
+                    formatter.format(totalDonationData, 1);
 
-                        var DonationRevenueChart = new google.visualization.LineChart(document.getElementById('DonationRevenueChart'));
-                        DonationRevenueChart.draw(totalDonationData, totalDonationOptions);
+                    var DonationRevenueChart = new google.visualization.LineChart(document.getElementById('DonationRevenueChart'));
+                    DonationRevenueChart.draw(totalDonationData, totalDonationOptions);
 
-                        // Donation Trends (Bar Chart)
-                        var topUpPreferencesData = google.visualization.arrayToDataTable([
-                            ['Game', 'Percentage',{ role: 'style' }],
-                            ['PAWS', {{donateData[0][3]}}, '#4e79a7'],
-                            ['Angat Buhay', {{donateData[1][3]}}, '#ff9da7'],
-                            ['The Nature', {{donateData[2][3]}},'#f28e2c'],
-                            ['Self Help Africa', {{donateData[3][3]}},'#e15759'],
-                            ['Save PH Children', {{donateData[4][3]}},'#76b7b2']
+                    // Donation Trends (Bar Chart)
+                    var topUpPreferencesData = google.visualization.arrayToDataTable([
+                        ['Game', 'Percentage', { role: 'style' }],
+                        ['PAWS', {{ donateData[0][3] }}, '#4e79a7'],
+                    ['Angat Buhay', {{ donateData[1][3] }}, '#ff9da7'],
+                        ['The Nature', {{ donateData[2][3] }}, '#f28e2c'],
+                        ['Self Help Africa', {{ donateData[3][3] }}, '#e15759'],
+                        ['Save PH Children', {{ donateData[4][3] }}, '#76b7b2']
                         ]);
 
-                        var topUpPreferencesOptions = {
-                            title: 'Donation Trends',
-                            chartArea: { width: '50%' },
-                            hAxis: {
-                                title: 'Percentage',
-                                minValue: 60
-                            },
-                            vAxis: {
-                                title: 'Network'
-                            },
-                            legend: { position: 'none' }
-                        };
+                    var topUpPreferencesOptions = {
+                        title: 'Donation Trends',
+                        chartArea: { width: '50%' },
+                        hAxis: {
+                            title: 'Percentage',
+                            minValue: 60
+                        },
+                        vAxis: {
+                            title: 'Network'
+                        },
+                        legend: { position: 'none' }
+                    };
 
-                        var topUpPreferencesChart = new google.visualization.BarChart(document.getElementById('DonationChart')); // Use BarChart
-                        topUpPreferencesChart.draw(topUpPreferencesData, topUpPreferencesOptions);
+                    var topUpPreferencesChart = new google.visualization.BarChart(document.getElementById('DonationChart')); // Use BarChart
+                    topUpPreferencesChart.draw(topUpPreferencesData, topUpPreferencesOptions);
                     }
 
                     // Toggle Sidebar

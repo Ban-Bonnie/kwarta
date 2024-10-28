@@ -399,6 +399,7 @@ class Kwarta:
             return render_template("Profile.html", account=self.account, history=self.historyTuple)
         
         
+        
         #Admin Routes
         @self.app.route("/Admin")
         def admin():
@@ -523,7 +524,12 @@ class Kwarta:
             accounts = cursor.fetchall()
             return render_template("/AdminUsers.html",accounts = accounts)
 
-
+        @self.app.route("/AdminTransaction")
+        def adminTransac():
+            cursor = self.mysql.connection.cursor()
+            cursor.execute("SELECT * FROM tbl_transactions;")
+            history = cursor.fetchall()
+            return render_template("/AdminTransac.html",history = history)
 
         #Processes 
         @self.app.route("/login_process", methods=['POST', 'GET'])
