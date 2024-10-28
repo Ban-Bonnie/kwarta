@@ -2,7 +2,7 @@
 
 :root {
     /* Core Palette */
-    --primary-blue: #575abd;         /* Reliable, deep greenish-blue for primary actions */
+    --primary-blue: #3c3f86;         /* Reliable, deep greenish-blue for primary actions */
     --soft-gray: #bbbec5;            /* Neutral background */
     --accent-green: #7f83e1;         /* Success indicators, approval */
   
@@ -12,7 +12,7 @@
     --gold: #FFD700;                 /* VIP or premium highlights */
   
     /* Text Colors */
-    --dark-charcoal: #333333;        /* Main readable text */
+    --dark-charcoal: #01151f;        /* Main readable text */
     --muted-black: #1E1E1E;          /* Emphasis text */
   
     /* Additional Colors */
@@ -20,7 +20,7 @@
     --light-blue: #0da3e9;           /* Light accent for backgrounds, cards */
     --dark-purple: #0a5174;          /* Almost-neutral deep shade, reserved */
     --medium-purple: #5A6A73;        /* Cool gray-blue as a subtle accent */
-    --light-purple: #85d180;         /* Pale gray-blue for dividers, borders */
+    --light-purple: #0c445f;         /* Pale gray-blue for dividers, borders */
     --medium-gray: #575abd;          /* Secondary text, non-distracting */
 }
 
@@ -105,7 +105,7 @@ header .item:hover {
 }
 
 header .item-button button {
-    background-color: var(--dark-purple);
+    background-color: var(--primary-blue);
     width: 150px;
     height: 50px;
     display: flex;
@@ -290,7 +290,7 @@ header .item-button button {
     padding: 2em;
     max-width: 100%;
     color: var(--white);
-    background-color: var(--medium-gray);
+    background-image: linear-gradient(180deg, var(--dark-charcoal),var(--muted-black));
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
 }
 
@@ -401,7 +401,7 @@ header .item-button button {
 }
 
 .head-section .btn-primary {
-    background-color: var(--dark-purple) !important;
+    background-color: var(--dark-purple);
     border: none;
 }
 
@@ -436,7 +436,7 @@ header .item-button button {
 }
 
 #About {
-    background-image: linear-gradient(150deg, var(--medium-gray),var(--light-purple));
+    background-image: linear-gradient(180deg, var(--dark-charcoal),var(--muted-black));
     padding: 30px; 
     color: var(--dark-charcoal);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
@@ -444,17 +444,20 @@ header .item-button button {
     -webkit-backdrop-filter: blur(10px);
 }
 
-.About img {
+.logo img {
     width: 100%;
     height: auto;
+    max-width: 500px; /* Adjust this value to control the logo size */
+    margin-bottom: 20px;
 }
 
 .About h2 {
-    color: var(--muted-black) !important; 
+    color: whitesmoke !important; 
 }
 
 .About p {
-    font-size: 20px;
+    color: whitesmoke;
+    font-size: 18px;
 }
 
 .About .btn-primary {
@@ -464,12 +467,18 @@ header .item-button button {
     font-weight: 600;
     color: var(--white);
     transition: all 0.5s ease;
-    background-color: var(--dark-purple); 
+    background-color: var(--primary-blue); 
     border: none;
 }
 
 .About .btn-primary:hover {
     background-color: var(--medium-purple) !important;
+}
+
+@media (max-width: 767px) {
+    .About img {
+        margin-bottom: 30px;
+    }
 }
 
 /* faq Testimony */
@@ -688,7 +697,7 @@ tbody tr:nth-child(even) {
 
 /* Footer */
 footer {
-    background-color: #1a1a1a;
+    background-image: linear-gradient(180deg, var(--dark-charcoal),var(--muted-black));
     color: #f8f9fa;
     padding: 3rem 0 2rem;
     margin-top: 1rem;

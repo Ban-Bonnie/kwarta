@@ -59,7 +59,7 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
-                    <div class="myform bg-dark">
+                    <div class="myform">
                         <h1 class="text-center">LOGIN</h1>
 
                         <form method="post" action="/login_process">
@@ -117,7 +117,7 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
-                    <div class="myform bg-dark">
+                    <div class="myform">
                         <h1 class="text-center">REGISTER</h1>
 
                         <form method="post" action="/registration_process">
@@ -221,29 +221,28 @@
     <div class="About-container" id="About">
         <div class="container">
             <div class="row align-items-center gx-3 gy-5 py-5 mt-5">
-                <center>
-                    <div class="col-12 col-md-12 text-center text-lg-start col-lg-7 About">
-                        <h2 class="fw-bold text-primary fs-1 pb-3">About E-Kwarta</h2>
-                        <p class="about-text">
-                            E-Kwarta is your convenient and secure e-wallet solution designed to simplify your digital
-                            transactions. With E-Kwarta, you can easily send and receive money, pay bills, purchase
-                            goods and services
-                            online, and manage your finances all in one place. Our user-friendly interface ensures that
-                            you can access your funds and perform transactions with just a few taps.
-                        </p>
-                        <p class="about-text">
-                            Our platform is built on robust security protocols to protect your data and ensure safe
-                            transactions. We aim to provide a seamless and hassle-free digital payment experience,
-                            empowering you to
-                            handle your finances effortlessly, whether at home or on the go.
-                            Join E-Kwarta today and experience the future of digital payments!
-                        </p>
-                        <button class="btn btn-primary px-5 py-3 mt-3 fs-5 fw-medium" type="button"
-                            data-bs-toggle="modal" data-bs-target="#RegisterForm">
-                            Sign Up Now
-                        </button>
-                    </div>
-                </center>
+                <div class="logo col-12 col-md-4 text-center">
+                    <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Kwarta Logo" class="img-fluid about-logo">
+                </div>
+                <div class="col-12 col-md-8 text-center text-lg-start About">
+                    <h2 class="fw-bold text-primary fs-1 pb-3">About Kwarta</h2>
+                    <p class="about-text">
+                        Kwarta is your convenient and secure e-wallet solution designed to simplify your digital
+                        transactions. With Kwarta, you can easily send and receive money, pay bills, purchase
+                        goods and services online, and manage your finances all in one place. Our user-friendly interface ensures that
+                        you can access your funds and perform transactions with just a few taps.
+                    </p>
+                    <p class="about-text">
+                        Our platform is built on robust security protocols to protect your data and ensure safe
+                        transactions. We aim to provide a seamless and hassle-free digital payment experience,
+                        empowering you to handle your finances effortlessly, whether at home or on the go.
+                        Join Kwarta today and experience the future of digital payments!
+                    </p>
+                    <button class="btn btn-primary px-5 py-3 mt-3 fs-5 fw-medium" type="button"
+                        data-bs-toggle="modal" data-bs-target="#RegisterForm">
+                        Sign Up Now
+                    </button>
+                </div>
             </div>
         </div>
     </div>

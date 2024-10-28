@@ -84,7 +84,6 @@
                                     <select class="form-select" id="sortBy">
                                         <option selected>Choose...</option>
                                         <option value="userid">User ID</option>
-                                        <option value="txn">Transaction</option>
                                         <option value="type">Type</option>
                                         <option value="payee">Payee</option>
                                         <option value="merchant">Merchant</option>
@@ -199,11 +198,15 @@
 
             // Determine the index based on the criteria
             const indexMap = {
-                'name': 3,
-                'username': 1,
-                'balance': 4,
-                'dateJoined': 6,
-                'totalTransactions': 7,
+                'userid': 0,
+                'type': 2,
+                'payee': 3,
+                'merchant': 4,
+                'purchase': 5,
+                'amount': 6,
+                'fee': 7,
+                'total_amount':8,
+                'date':9
             };
 
             const index = indexMap[criteria];
@@ -213,7 +216,7 @@
                     const cellB = b.cells[index].innerText;
 
                     // Handle numeric sorting for balance and total transactions (descending)
-                    if (criteria === 'balance' || criteria === 'totalTransactions') {
+                    if (criteria === 'userid' || criteria === 'amount' || criteria == 'fee' || criteria == 'total_amount') {
                         return parseFloat(cellB) - parseFloat(cellA); // Change to descending
                     }
                     // Default string sorting (ascending)
