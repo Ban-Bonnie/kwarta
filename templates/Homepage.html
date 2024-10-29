@@ -123,12 +123,19 @@
                         <form method="post" action="/registration_process">
                             <div class="mb-3 mt-4">
                                 <label for="registerName" class="form-label">Full Name</label>
-                                <input name="name" type="text" class="form-control" id="registerName"
+                                <input required name="name" type="text" class="form-control" id="registerName"
                                     autocomplete="off">
+                            </div>
+                            <div class="mb-3 mt-4">
+                                <label for="registerAge" class="form-label">Age</label>
+                                <input required name="age" type="number" class="form-control" id="registerAge" autocomplete="off">
+                                <div class="alert alert-warning mt-3" id="ageWarning" style="display: none;">
+                                    Must be 18+ to register
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="registerEmail" class="form-label">Username</label>
-                                <input autocomplete="off" name="username" type="text" class="form-control"
+                                <input required autocomplete="off" name="username" type="text" class="form-control"
                                     id="registerEmail" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
@@ -139,14 +146,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="registerPassword" class="form-label">Password</label>
-                                <input name="password" type="password" class="form-control" id="registerPassword">
+                                <input required name="password" type="password" class="form-control" id="registerPassword">
                             </div>
                             <div class="mb-3">
                                 <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
-                                <input name="confirmPassword" type="password" class="form-control"
+                                <input required name="confirmPassword" type="password" class="form-control"
                                     id="registerConfirmPassword">
                             </div>
-                            <button type="submit" class="btn mt-3">REGISTER</button>
+                            <button type="submit" class="btn mt-3" id="registerButton">REGISTER</button>
                             <p>&nbsp;Already a member?<br><a href="#" data-bs-toggle="modal"
                                     data-bs-target="#LoginForm">Login here</a></p>
 
@@ -227,16 +234,15 @@
                 <div class="col-12 col-md-8 text-center text-lg-start About">
                     <h2 class="fw-bold text-primary fs-1 pb-3">About Kwarta</h2>
                     <p class="about-text">
-                        Kwarta is your convenient and secure e-wallet solution designed to simplify your digital
-                        transactions. With Kwarta, you can easily send and receive money, pay bills, purchase
-                        goods and services online, and manage your finances all in one place. Our user-friendly interface ensures that
-                        you can access your funds and perform transactions with just a few taps.
+                        Welcome to Kwarta, your trusted partner in managing your finances with ease and security. 
+                        At Kwarta, we believe in empowering our customers with a seamless online banking experience that combines innovative 
+                        technology with exceptional service.
                     </p>
+                    
                     <p class="about-text">
-                        Our platform is built on robust security protocols to protect your data and ensure safe
-                        transactions. We aim to provide a seamless and hassle-free digital payment experience,
-                        empowering you to handle your finances effortlessly, whether at home or on the go.
-                        Join Kwarta today and experience the future of digital payments!
+                        Our mission is to provide a comprehensive online banking platform that simplifies financial management for 
+                        individuals and businesses alike. We strive to offer a user-friendly interface, robust security measures, 
+                        and a range of services tailored to meet your unique banking needs.
                     </p>
                     <button class="btn btn-primary px-5 py-3 mt-3 fs-5 fw-medium" type="button"
                         data-bs-toggle="modal" data-bs-target="#RegisterForm">
@@ -342,7 +348,7 @@
                                         class="rounded-circle img-fluid" alt="Ejvind">
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="mb-4">Ejvind Gem Gimotea</h4>
+                                    <h4 class="mb-4">Ejvind Gimotea</h4>
                                     <hr />
                                     <p class="dark-grey-text mt-4">
                                         <i class="fas fa-quote-left pe-2"></i>Easy to use with efficient tools for
@@ -395,6 +401,27 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
     <script src="{{ url_for('static', filename='Bootstrap offiline/js/bootstrap.bundle.min.js') }}"></script>
+    <script>
+        /* is user 18+ code from gpt - Bonnie*/
+        document.addEventListener("DOMContentLoaded", function() {
+        const ageInput = document.getElementById("registerAge");
+        const registerButton = document.getElementById("registerButton");
+        const ageWarning = document.getElementById("ageWarning");
+
+        ageInput.addEventListener("input", function() {
+            const age = parseInt(ageInput.value);
+            if (age < 18 || isNaN(age)) {
+                registerButton.disabled = true; // Disable the button
+                ageWarning.style.display = "block"; // Show the warning
+            } else {
+                registerButton.disabled = false; // Enable the button
+                ageWarning.style.display = "none"; // Hide the warning
+            }
+        });
+    });
+    </script>
+    
+
 </body>
 
 </html>

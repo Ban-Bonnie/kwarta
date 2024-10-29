@@ -1129,7 +1129,7 @@ class Kwarta:
 
                 return redirect(url_for("adminUsers"))
 
-            return redirect(url_for("adminUsers"))  # Handle GET requests
+            return redirect(url_for("adminUsers"))
 
 
 # Object
@@ -1139,6 +1139,5 @@ x.run()
 
 
 # make Load now button #009d63(main color)
-# modals for success transactions (Game topup, Load, etc.)
-# also add confirmation modals ("you are sending __ amount to user ___, click to confirm")
-# Route the profile icon
+# make dashboard strip close on login
+# POst and GET
